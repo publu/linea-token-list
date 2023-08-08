@@ -34,7 +34,7 @@ const fetchTokenDetails = async (address) => {
     address: l2Address,
     name: name,
     symbol: symbol,
-    decimals: decimals,
+    decimals: Number(decimals),
     createdAt: new Date().toISOString().split('T')[0],
     updatedAt: new Date().toISOString().split('T')[0],
     // Note: You might need to fetch the logoURI from another source.
@@ -61,5 +61,5 @@ const fetchTokenDetailsForAddresses = async (addresses) => {
     // Enter L1 token address here
   ];
   
-  console.log(await fetchTokenDetailsForAddresses(ethereumTokenAddresses));
+  console.log(JSON.stringify(await fetchTokenDetailsForAddresses(ethereumTokenAddresses)));
 })();
